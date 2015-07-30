@@ -69,6 +69,7 @@ AppDispatcher.register(function(payload) {
     // Respond to CART_ADD action
     case PhuotConstants.PHUOT_CREATE:
       createPhuot(action.data);
+      PhuotStore.emitChange();
       break;
 
     // Respond to CART_VISIBLE action
