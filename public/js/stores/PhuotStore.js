@@ -7,8 +7,10 @@ var _phuots = {};
 
 function createPhuot(data) {
 
-  //Call API at here
-	console.log(" Create Phuot ");
+  $.post('/api/v1/userpage/users/1/phuots', {phuot: data}, function(result){
+    console.log(result);
+  });
+  
 }
 
 function updatePhuot(id, data) {
