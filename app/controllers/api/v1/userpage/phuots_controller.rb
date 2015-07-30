@@ -1,6 +1,7 @@
 class Api::V1::Userpage::PhuotsController < Api::V1::User::ApplicationController
   skip_before_filter :verify_authenticity_token
 	def index
+		@phuots = Phuot.all
 	end
 
 	def create

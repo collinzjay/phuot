@@ -21,11 +21,24 @@ function destroyPhuot(id) {
 	console.log(" destroy Phuot ");
 }
 
+function getdata() {
+  $.get('/api/v1/userpage/users/1/phuots', function(result) {
+  })
+}
+
 // Extend Cart Store with EventEmitter to add eventing capabilities
 var PhuotStore = _.extend({}, EventEmitter.prototype, {
 
   // Return cart items
   getPhuots: function() {
+    $.ajax({
+        type: "GET",
+        url: "/api/v1/userpage/users/1/phuots",
+        async:false,
+        success: function (data) {                            
+            _phuots = data.phuot;
+        } //success
+    });
     return _phuots;
   },
 

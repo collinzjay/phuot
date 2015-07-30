@@ -2,8 +2,27 @@ var React = require('react');
 var PhuotStore = require('../stores/PhuotStore');
 var PhuotActions = require('../actions/PhuotActions');
 
+
+function getAllPhuots() {
+  return {
+    allPhuots: PhuotStore.getPhuots()
+  };
+}
+
 // Flux cart view
 var PhuotComponents = React.createClass({
+  
+  getInitialState: function() {
+    return getAllPhuots();
+  },
+
+  componentDidMount: function() {
+    PhuotStore.addChangeListener(this._onChange);
+  },
+
+  componentWillUnmount: function() {
+    PhuotStore.removeChangeListener(this._onChange);
+  },
 
   createPhuot: function() {
 
@@ -32,18 +51,38 @@ var PhuotComponents = React.createClass({
 
   // Render cart view
   render: function() {
+
+    var allPhuots = this.state.allPhuots;
+    var list = [];
+    allPhuots.forEach(function(phuot){
+      {
+        list.push(<li>{phuot.title}</li>);
+      }
+    });
+
     return (
       <div>
-        <h4> Test Create Phuot </h4>
-          <input type="text" ref="title" className="inputPhuot" placeholder="Nhap Vao title" /> <br/>
-          <input type="text" ref="description" className="inputPhuot" placeholder="Nhap Vao description" /> <br/>
-          <input type="text" ref="start_time" className="inputPhuot" placeholder="Nhap Vao start_time" /> <br/>
-          <input type="text" ref="end_time" className="inputPhuot" placeholder="Nhap Vao end_time" /> <br/>
-          <input type="text" ref="status" className="inputPhuot" placeholder="Nhap Vao status" /> <br/>
-          <button id="createphuot" name="createphuot" onClick={this.createPhuot}>Create</button> <br/>
+        <div>
+          <h4> Test Create Phuot </h4>
+            <input type="text" ref="title" className="inputPhuot" placeholder="Nhap Vao title" /> <br/>
+            <input type="text" ref="description" className="inputPhuot" placeholder="Nhap Vao description" /> <br/>
+            <input type="text" ref="start_time" className="inputPhuot" placeholder="Nhap Vao start_time" /> <br/>
+            <input type="text" ref="end_time" className="inputPhuot" placeholder="Nhap Vao end_time" /> <br/>
+            <input type="text" ref="status" className="inputPhuot" placeholder="Nhap Vao status" /> <br/>
+            <button id="createphuot" name="createphuot" onClick={this.createPhuot}>Create</button> <br/>
+        </div>
+        <div>
+          <ul>
+            {list}
+          </ul>
+        </div>
       </div>
     );
   },
+
+  _onChange: function() {
+    this.setState(getAllPhuots());
+  }
 
 });
 
