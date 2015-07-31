@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  ### API
   namespace :api do
   	namespace :v1 do
   		namespace :admincp do
@@ -12,9 +13,13 @@ Rails.application.routes.draw do
 				resources :users do
 					resources :phuots
 				end
-
 				post 'users/login' 							=> 'users#login'
 			end
   	end
   end
+
+  ### UI
+
+  get '/users/register' => 'users#register_form'
+  get '/users/login' => 'users#login_form'
 end

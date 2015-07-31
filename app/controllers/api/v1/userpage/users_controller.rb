@@ -1,4 +1,4 @@
-class Api::V1::Userpage::UsersController < Api::V1::User::ApplicationController
+class Api::V1::Userpage::UsersController < Api::V1::Userpage::ApplicationController
 	skip_before_filter :verify_authenticity_token
 	def index
 		@user = User.all
