@@ -1,12 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
+
+<!-- Mirrored from 104.219.251.196/~vijaytupakula/preview/piluku/signin.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 24 Jul 2015 02:33:41 GMT -->
 <head>
-	<meta charset="UTF-8">
-	<title>Document</title>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
+	<!--320-->
+	<title>Piluku</title>
+    <!-- <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon"> -->
+    <!-- Bootstrap CSS -->
+
+	<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+	<link rel="stylesheet" href="assets/css/material.css">
+
+  <!-- <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/material.css"> -->
+
+
+  <!-- Compiled and minified CSS -->
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.95.3/css/materialize.min.css"> -->
+
+  <link rel="stylesheet" type="text/css" href="assets/css/signin.css">
+  <link rel="stylesheet" type="text/css" href="assets/css/signup.css">
+  <!-- custom scrollbar stylesheet -->
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+	<link rel='stylesheet' href='assets/css/animated-masonry-gallery.css'>
+	<link rel='stylesheet' href='assets/css/rotated-gallery.css'>
+	<link rel='stylesheet' href='assets/css/sweet-alerts/sweetalert.css'>
+	<link rel='stylesheet' href='assets/css/jtree.css'>
+  <script src='assets/js/jquery.js'></script>
+	<script src='assets/js/app.js'></script>
+  <script>
+    jQuery(window).load(function () {
+      $('.piluku-preloader').addClass('hidden');
+    });
+  </script>
+
 </head>
-<body>
-	<div id="content"></div>
-	<script src="js/bundle.js"></script>
-</body>
+
+	<body>
+		<!--Include template-->
+		<div id="content"></div>
+	</body>
+	<!-- Bootstrap JavaScript -->
+
+	<script src='assets/js/bootstrap.min.js'></script>
+	<script src='assets/js/materialize.js'></script>
+	<script src='assets/js/jquery-ui-1.10.3.custom.min.js'></script>
+	<script src='assets/js/jquery.nicescroll.min.js'></script>
+	<script src='assets/js/wow.min.js'></script>
+	<script src='assets/js/jquery.loadmask.min.js'></script>
+	<script src='assets/js/jquery.accordion.js'></script>
+	<script src='assets/js/build/d3.min.js'></script>
+	<script src='assets/js/nvd3/nv.d3.js'></script>
+	<script src='assets/js/bic_calendar.js'></script>
+	<script src='assets/js/sparkline.js'></script>
+	<script src='assets/js/widgets.js'></script>
+	<script type="text/javascript" src="assets/js/countdown.js"></script>
+	<script type="text/javascript" src="assets/js/jquery.countdown.js"></script>
+	<script type="text/javascript" src="assets/js/core.js"></script>
+
+	<!-- Datetime picker -->
+	<script src='assets/js/select2.js'></script>
+	<script src='assets/js/jquery.multi-select.js'></script>
+	<script src='assets/js/bootstrap-filestyle.js'></script>
+	<script src='assets/js/bootstrap-datepicker.js'></script>
+	<script src='assets/js/bootstrap-colorpicker.js'></script>
+	<script src='assets/js/jquery.maskedinput.js'></script>
+	<script src='assets/js/form-elements.js'></script>
+	<script>
+		$(function() {
+			var endDate = "June 7, 2087 15:03:25";
+			$('.countdown.styled').countdown({
+				date: endDate,
+				render: function(data) {
+					$(this.el).html("<div>" + this.leadingZeros(data.years, 2) + " <span>years</span></div><div>" + this.leadingZeros(data.days, 2) + " <span>days</span></div><div>" + this.leadingZeros(data.hours, 2) + " <span>hrs</span></div><div>" + this.leadingZeros(data.min, 2) + " <span>min</span></div><div>" + this.leadingZeros(data.sec, 2) + " <span>sec</span></div>");
+				}
+			});
+			$(".openNav").click(function() {
+				$(this).toggleClass("open");
+			});
+		});
+	</script>
+
+	<script src="assets/js/jquery.countTo.js"></script>
+	<script src="js/bundle.js" ></script>
+
+
+ 
+<!-- Mirrored from 104.219.251.196/~vijaytupakula/preview/piluku/signin.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 24 Jul 2015 02:33:41 GMT -->
 </html>
