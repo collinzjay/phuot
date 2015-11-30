@@ -9,7 +9,7 @@ class Api::V1::Userpage::PhuotsController < Api::V1::User::ApplicationController
 		if User.exists?(id: params[:user_id])
 			user = User.find(params[:user_id])
 			@phuot = user.phuots.new(phuot_params)
-			
+
 			if @phuot.save
 				render plain: "Create Phuot Successful!"
 			else

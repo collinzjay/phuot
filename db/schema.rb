@@ -11,7 +11,42 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151127041731) do
+ActiveRecord::Schema.define(version: 20151130030205) do
+
+  create_table "agendars", force: :cascade do |t|
+    t.string   "description"
+    t.datetime "from_date"
+    t.datetime "to_date"
+    t.integer  "phuot_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "agendars", ["phuot_id"], name: "index_agendars_on_phuot_id"
+
+  create_table "albums", force: :cascade do |t|
+    t.string   "title"
+    t.string   "description"
+    t.integer  "user_id"
+    t.integer  "phuot_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "albums", ["phuot_id"], name: "index_albums_on_phuot_id"
+  add_index "albums", ["user_id"], name: "index_albums_on_user_id"
+
+  create_table "comments", force: :cascade do |t|
+    t.string   "content"
+    t.integer  "status"
+    t.integer  "post_id"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "comments", ["post_id"], name: "index_comments_on_post_id"
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id"
 
   create_table "phuots", force: :cascade do |t|
     t.string   "title"
@@ -26,6 +61,42 @@ ActiveRecord::Schema.define(version: 20151127041731) do
   end
 
   add_index "phuots", ["user_id"], name: "index_phuots_on_user_id"
+
+  create_table "pictures", force: :cascade do |t|
+    t.string   "URL"
+    t.string   "description"
+    t.integer  "album_id"
+    t.integer  "user_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "pictures", ["album_id"], name: "index_pictures_on_album_id"
+  add_index "pictures", ["user_id"], name: "index_pictures_on_user_id"
+
+  create_table "posts", force: :cascade do |t|
+    t.string   "content"
+    t.integer  "status"
+    t.integer  "phuot_id"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "posts", ["phuot_id"], name: "index_posts_on_phuot_id"
+  add_index "posts", ["user_id"], name: "index_posts_on_user_id"
+
+  create_table "tasks", force: :cascade do |t|
+    t.string   "title"
+    t.string   "description"
+    t.integer  "user_id"
+    t.integer  "phuot_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "tasks", ["phuot_id"], name: "index_tasks_on_phuot_id"
+  add_index "tasks", ["user_id"], name: "index_tasks_on_user_id"
 
   create_table "tokens", force: :cascade do |t|
     t.string   "token"
@@ -56,5 +127,17 @@ ActiveRecord::Schema.define(version: 20151127041731) do
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end
+
+  create_table "videos", force: :cascade do |t|
+    t.string   "URL"
+    t.string   "description"
+    t.integer  "album_id"
+    t.integer  "user_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "videos", ["album_id"], name: "index_videos_on_album_id"
+  add_index "videos", ["user_id"], name: "index_videos_on_user_id"
 
 end

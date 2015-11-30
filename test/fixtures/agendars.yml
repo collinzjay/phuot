@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  description: MyString
+  from_date: 2015-11-30 09:45:03
+  to_date: 2015-11-30 09:45:03
+  phuot_id: 
+
+two:
+  description: MyString
+  from_date: 2015-11-30 09:45:03
+  to_date: 2015-11-30 09:45:03
+  phuot_id: 

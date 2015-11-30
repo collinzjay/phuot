@@ -5,7 +5,9 @@ namespace :api, defaults: {format: :json} do
   	namespace :v1 do
   		namespace :admincp do
 		    get '/users'                    => 'users#index'
+		    get '/users/logout'				=> 'users#logout'				
 		    get '/users/register'           => 'users#register'
+		    post '/users'					=> 'users#create'
 		    post '/users/login'				=> 'users#login'
 		end
 
