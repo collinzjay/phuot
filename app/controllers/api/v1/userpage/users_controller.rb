@@ -1,5 +1,7 @@
 class Api::V1::Userpage::UsersController < Api::V1::Userpage::ApplicationController
-	skip_before_filter :verify_authenticity_token
+	include Authorize
+	
+
 	def index
 		@user = User.all
 		render plain: "ok"
@@ -30,7 +32,7 @@ class Api::V1::Userpage::UsersController < Api::V1::Userpage::ApplicationControl
 
 		if @user.present?
 			if @user.password == password
-		    render plain: "Login successful !"
+		    	@token = Authorize.token(email, password)
 			else
 		    render plain: "Password is not correct !"
 		  end

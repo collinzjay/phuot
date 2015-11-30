@@ -1,25 +1,24 @@
 Rails.application.routes.draw do
   
   ### API
-  namespace :api do
+namespace :api, defaults: {format: :json} do
   	namespace :v1 do
   		namespace :admincp do
 		    get '/users'                    => 'users#index'
-		    get '/users/login'              => 'users#login'
-		    get '/users/register'           => 'users#register'  
-			end	
+		    get '/users/register'           => 'users#register'
+		    post '/users/login'				=> 'users#login'
+		end
 
-			namespace :userpage, defaults: {format: :json} do 
-				resources :users do
-					resources :phuots
-				end
-				post 'users/login' 							=> 'users#login'
+		namespace :userpage, defaults: {format: :json} do 
+			resources :users do
+				resources :phuots
 			end
+			post 'users/login' 							=> 'users#login'
+		end
   	end
-  end
+end
 
-  ### UI
-
-  get '/users/register' => 'users#register_form'
-  get '/users/login' => 'users#login_form'
+### UI
+get '/users/register' => 'users#register_form'
+get '/users/login' => 'users#login_form'
 end
